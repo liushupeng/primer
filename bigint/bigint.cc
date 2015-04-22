@@ -6,7 +6,7 @@
 #include <algorithm>
 
 #undef DEBUG
-#define BAND	10	/* 以10000进制进行计算 */
+#define BAND	10	/* 以BAND进制进行计算 */
 
 class BigInt
 {
@@ -197,7 +197,7 @@ std::vector<int> BigInt::Diff(const std::vector<int> &i1, const std::vector<int>
     dd = ret ? d2 - d1 : d1 - d2;
     diff  = dd - carry;
     carry = diff < 0 ? 1 : 0;
-    diff += BAND;
+    diff += diff < 0 ? BAND : 0;
     
     tmp.push_back(diff);
   }
@@ -207,6 +207,7 @@ std::vector<int> BigInt::Diff(const std::vector<int> &i1, const std::vector<int>
 std::vector<int> BigInt::Multi(const std::vector<int> &i1, const std::vector<int> &i2)
 {
   std::vector<int> tmp;
+  
   return (tmp);
 }
 
